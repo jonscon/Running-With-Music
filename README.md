@@ -1,6 +1,8 @@
 # Running with Music
 
-### Running with Music is an two-feature application designed to help a runner decide what music they want to listen to and keep track of their runs. 
+### Running with Music is an two-feature application designed to help a runner decide what music they want to listen to and keep track of their runs.
+
+[Try out Running with Music here!](https://running-with-music.onrender.com)
 
 ## Features
 1. The first feature of this application features a custom curation of a playlist from Spotify's API based on a user's music preferences. The application captures:
