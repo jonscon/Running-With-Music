@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="log-container">
+    <div class="running-log-header">
+        <h1>My Running Log</h1>    
+        <select id="select-week" onchange ="filterByWeek()" class="form-control">
+            <option>--Select a week to filter by--</option>
+            <option>Week 1</option>
+            <option>Week 2</option>
+            <option>Week 3</option>
+            <option>Week 4</option>
+            <option>Week 5</option>
+            <option>Week 6</option>
+            <option>Week 7</option>
+            <option>Week 8</option>
+            <option>Week 9</option>
+            <option>Week 10</option>
+        </select>
+    </div>
+
+    <table id="running-log">
+        <thead>
+            <h4 id="week-header" class="hidden">Week 1</h4>
+        </thead>
+        <tbody id="running-entries">
+            <tr>
+                <th id="log-x-button-header"></th>
+                <th class="week">Week</th>
+                <th>Day</th>
+                <th>Distance</th>
+                <th>Time</th>
+                <th>Pace</th>
+                <th class="notes">Notes</th>
+            </tr>
+            {% for run in runs %}
+            <tr id="{{ run.id }}">
+                <td class="log-x-button"><i class="fa-regular fa-trash-can"></i></td>
+                <td class="week">{{ run.week }}</td>
+                <td>{{ run.day }}</td>
+                <td>{{ run.distance }}</td>
+                <td>{{ run.time }}</td>
+                <td>{{ run.pace }}</td>
+                <td class="notes">{{ run.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/log/{{ user_id }}/new" class="btn btn-primary">Record a Run</a>
+</div>
+<script src="/static/log-week.js"></script>
+
+{% endblock %}

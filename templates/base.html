@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Running App</title>
+
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    
+    <!-- jQuery scripts -->
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
+    <script src="https://unpkg.com/popper"></script>
+    <script src="https://unpkg.com/bootstrap"></script>
+    <script src="https://kit.fontawesome.com/f7e951c5c4.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <nav class="navbar navbar-expand">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">
+            <span>Run with Music</span>
+          </a>
+        </div>
+        {% if g.user %}
+        <ul class="nav navbar-nav navbar-features">
+          <li><a href="/">Music</a></li>
+          <li><a href="/log/{{ g.user.id }}">Running Log</a></li>
+        </ul>
+        
+        {% endif %}
+        
+        <ul class="nav navbar-nav navbar-right">
+          {% if not g.user %}
+            <li><a href="/signup">Sign up</a></li>
+            <li><a href="/login">Log in</a></li>
+          {% else %}
+            <li><a href="/logout">Log out</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>   
+    <div class="container" style="margin-top: 2em">
+        {% for category, msg in get_flashed_messages(with_categories=true) %}
+        <div class="alert alert-{{category}}">{{ msg }}</div>
+        {% endfor %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="prompts-container">
+  <h1>Curate Your Playlist</h1>
+
+  <form method="POST" id="music-form">
+      {{ form.hidden_tag() }}
+
+      {% for field in form if field.widget.input_type != 'hidden' %}
+        {% for error in field.errors %}
+          <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+        {% if field.type == 'RadioField' %}
+          <div class="mood-container">
+              <h4>{{field.label.text}}</h4>
+              <div class="selections-container">
+                {% for subfield in field %}
+                  <div class="selection">
+                    <tr>
+                      <td>{{ subfield }}</td>
+                      <td>{{ subfield.label }}</td>
+                    </tr>
+                  </div>
+                {% endfor %}
+              </div>
+          </div>
+
+        {% elif field.name == 'search' %}
+          <h4>Which artists best fit your music taste and mood for today?</h4>
+          <div class="search-container">
+              {{ field(placeholder=field.label.text, class="form-control", id="search-box", value="") }}
+              <div class="suggestions hidden">
+                  <ul></ul>
+              </div>
+          </div>
+
+        {% else %}
+          <div class="artist-group">
+            {{ field(placeholder=field.label.text, class="artist-form-control", id=field.name, value="") }}
+            <span class="x-button">X</span>
+          </div>
+        
+        {% endif %}
+      {% endfor %}
+      <button class="btn btn-primary">Create Your Playlist</button>
+  </form>
+</div>
+
+<script src="/static/search.js"></script>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="music-container">
+    <h1>Curate Your Sound</h1>
+    <h3>Let's create a custom playlist to fuel your run today!</h3>
+    <a href="/music/create_playlist" class="btn btn-primary create-button">Create My Playlist</a>
+
+    {% if playlists %}
+    <div class="list-playlists-container">
+        <h4>See the playlists you've made!</h4>
+        <div class="list-playlists">
+            {% for playlist in playlists %}
+                <a href="/music/{{ playlist.id }}/playlist">{{ playlist.name }} (Mood - {{ playlist.mood }}) </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

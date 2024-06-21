@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="music-container">
+  <h1>Create Your Playlist</h1>
+
+  <form method="POST" id="playlist-form">
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.widget.input_type != 'hidden' %}
+      {% for error in field.errors %}
+        <span class="text-danger">{{ error }}</span>
+      {% endfor %}
+      {{ field(placeholder=field.label.text, class="form-control") }}
+    {% endfor %}
+    <button class="btn btn-primary">Create My Playlist!</button>
+  </form>
+</div>
+
+{% endblock %}

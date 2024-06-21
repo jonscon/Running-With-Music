@@ -1,0 +1,429 @@
+/* ===================== General Styling */
+
+.hidden {
+    display: none;
+}
+
+nav {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+h4 {
+    text-align: center;
+}
+
+
+/* ===================== Music Feature */
+
+.music-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    margin-top: 2em;
+}
+
+.music-container .create-button {
+    margin: 10px;
+}
+
+.list-playlists-container {
+    margin-top: 30px;
+}
+
+.list-playlists {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-block-size: 20rem;
+    overflow-y: scroll;
+    margin: 20px;
+    border: 2px solid rgb(54, 69, 79, 0.25);
+    border-radius: 5px;
+    background-color: rgb(54, 69, 79);
+}
+
+.list-playlists a {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.list-playlists a:hover {
+    color: #1c94e0;
+}
+
+.home-music .btn {
+    text-shadow: none;
+    position: relative;
+    z-index: 1;
+    margin-top: 2em;
+}
+
+#playlist-form input.form-control{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px;
+    padding: 12px;
+    width: 50vw;
+}
+
+#playlist-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prompts-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: -1;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#music-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mood-container {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    align-self: center;
+}
+
+.selections-container {
+    display: flex;
+    gap: 25px;
+}
+
+.selection {
+    display: flex;
+    gap: 5px;
+}
+
+#music-form input.form-control {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px 12px 20px;
+    width: 55vw;
+}
+
+.search-container .suggestions {
+    width: 55vw;
+    margin: -18px 12px 12px;
+    max-block-size: 10rem;
+    overflow-y: scroll;
+    background-color: rgb(54, 69, 79, 0.3);
+    border-radius: 5px;
+}
+ 
+.search-container .suggestions ul {
+   list-style-type: none;
+   padding-left: 0px;
+}
+ 
+.search-container .suggestions ul li {
+   padding: 0.3rem;
+}
+
+.search-container .suggestions ul li:hover {
+    background-color: rgb(105, 105, 105);
+    cursor: pointer;
+}
+
+#music-form input.artist-form-control {
+    display: inline;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 50vw;
+}
+
+.x-button {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.x-button:hover {
+    cursor: pointer;
+}
+
+.playlist-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: -1;
+    margin-top: 2em;    
+}
+
+.playlist-container a {
+    margin: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.songs {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 5px;
+    max-block-size: 20rem;
+    overflow-y: scroll;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: rgb(54, 69, 79, 0.75);
+}
+
+.songs p {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* ===================== Running Log */
+
+.log-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    margin-top: 2em;
+    gap: 10px;
+}
+
+.log-container .running-log-header {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#select-week {
+    margin-top: 100px;
+}
+
+.log-container .form-control {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 12px;
+    padding: 8px;
+    width: 50vw;
+}
+
+.log-container .btn {
+    margin: 10px;
+}
+
+#running-log {
+    width: 90vw;
+    table-layout: fixed;
+}
+
+#running-log th {
+    width: 14vw;
+    text-align: center;
+}
+
+#running-log tr {
+    border-bottom: 1px solid;
+}
+
+#running-log td {
+    width: 14vw;
+    text-align: center;
+}
+
+#running-log .notes {
+    width: 19vw;
+}
+
+#running-log #log-x-button-header {
+    width: 1vw;
+}
+
+#running-log td.log-x-button {
+    width: 1vw;
+}
+
+#running-log td.log-x-button:hover {
+    color: red;
+    cursor: pointer;
+}
+
+#running-entries {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#run-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#run-form .form-control {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px;
+    padding: 12px;
+    width: 50vw;
+}
+
+#run-form .btn {
+    align-items: center;
+}
+
+
+/* ===================== Nav */
+
+.navbar {
+    background-color: rgb(54, 69, 79);
+    height: 46px;
+    border-bottom: 1px solid rgba(54, 69, 79, 0.25);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 9999;
+}
+
+.navbar a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #1c94e0;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+ul.nav.navbar-nav {
+    align-items: center;
+}
+
+ul.nav.navbar-nav li {
+    margin: 0 0.5rem;
+    display: flex;
+}
+
+/* on "onboarding" pages (signup & login), the navbar is
+   different: no search box, the logo is centered, and it has
+   a background color.
+ */
+  
+.onboarding .navbar-header {
+    margin: 0 auto;
+}
+
+.onboarding .navbar-brand {
+    margin: 0;
+}
+
+.onboarding .navbar-brand span {
+    display: none;
+}
+
+.onboarding .nav.navbar-nav.navbar-right {
+    position: absolute;
+    right: 16px;
+}
+
+.onboarding > .navbar a {
+    color: #fff;
+}
+
+  
+/* ============================ Signed out home */
+
+.home-hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    left: 0;
+    z-index: -1;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2em;
+}
+  
+.home-hero .btn {
+    text-shadow: none;
+    position: relative;
+    z-index: 1;
+    width: 150px;
+}
+  
+.home-hero h1 {
+    margin-bottom: 4rem;
+}
+  
+.home-hero:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: rgba(255, 255, 255, 0.3); */
+}
+
+
+/* ========================== Signup/Login */
+
+#user_form input.form-control {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px;
+    padding: 12px;
+}
+.join-message {
+    margin-top: 100px;
+}
