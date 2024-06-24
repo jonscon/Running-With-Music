@@ -31,7 +31,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 
 connect_db(app)
 app.app_context().push()
-db.create_all()
+# db.create_all()
 
 app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
 # Having the Debug Toolbar show redirects explicitly is often useful;
