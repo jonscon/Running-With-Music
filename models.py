@@ -1,6 +1,7 @@
 """Models for Running App."""
 
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import UniqueConstraint
 
 from flask_bcrypt import Bcrypt
 
@@ -98,6 +99,10 @@ class Song(db.Model):
     artist = db.Column(db.Text, nullable=False)
     
     playlist_id = db.Column(db.Integer, db.ForeignKey('playlists.id', ondelete='cascade'), nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint('playlist_id', 'name', 'artist', name='unique_song_in_playlist'),
+    )
 
 
 ############ Running Log Models ############

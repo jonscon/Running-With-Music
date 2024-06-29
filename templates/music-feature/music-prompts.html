@@ -40,6 +40,9 @@
           <div class="artist-group">
             {{ field(placeholder=field.label.text, class="artist-form-control", id=field.name, value="") }}
             <span class="x-button">X</span>
+            <div class="suggestions hidden">
+                <ul></ul>
+            </div>
           </div>
         
         {% endif %}

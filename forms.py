@@ -26,10 +26,9 @@ class MusicForm(FlaskForm):
     mood = RadioField('How do you want to feel during your run today?', 
                        choices=[('low', 'Calm & Relaxing'), ('mid', 'Uplifting & Groovy'), ('high', 'Energetic & Exciting')],
                        validators=[DataRequired()])
-    search = StringField('Search for Artist')
-    artist_1 = StringField('Artist 1', render_kw={'readonly': True})
-    artist_2= StringField('Artist 2', render_kw={'readonly': True})
-    artist_3 = StringField('Artist 3', render_kw={'readonly': True})
+    artist_1 = StringField('Artist 1')
+    artist_2= StringField('Artist 2')
+    artist_3 = StringField('Artist 3')
 
 class NewRunForm(FlaskForm):
     """New run form."""
@@ -46,9 +45,9 @@ class NewRunForm(FlaskForm):
                                       ('Thursday', 'Thursday'), ('Friday', 'Friday'), ('Saturday', 'Saturday'),
                                       ('Sunday', 'Sunday')], validators=[choose_option])
     
-    distance = StringField('Distance', validators = [DataRequired()])
+    distance = StringField('Distance (please specify mi/km)', validators = [DataRequired()])
 
-    time = StringField('Total Time', validators=[DataRequired()])
+    time = StringField('Total Time (in 00:00:00 or 0h 0m 0s format)', validators=[DataRequired()])
     
     pace = StringField('Pace', validators=[Optional()])
 

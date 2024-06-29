@@ -1,8 +1,8 @@
 """Playlist model tests."""
 
 
-import os
-import sys
+import os, sys, pytest
+from sqlalchemy.exc import IntegrityError
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
@@ -70,6 +70,7 @@ class UserModelTestCase(TestCase):
         self.assertEqual(self.u.playlist[0].name, "Test Playlist")
 
     def test_playlist_songs(self):
+        ### Test normal case ###
         p = Playlist(
             name = "Test Playlist",
             mood = "Upbeat and Groovy",
@@ -89,3 +90,39 @@ class UserModelTestCase(TestCase):
         playlist = self.u.playlist[0]
         self.assertEqual(len(playlist.songs), 1)
         self.assertEqual(playlist.songs[0].name, "dashstar")
+
+        ### Test duplicate songs ###
+
+        duplicate_s = Song(
+            name = "dashstar",
+            artist = "Knock2",
+            playlist_id = 1
+        )
+        db.session.add(duplicate_s)
+
+        # Check that an IntegrityError is raised when committing
+        with pytest.raises(IntegrityError):
+            db.session.commit()
+
+        # Rollback the session to clean up the failed commit
+        db.session.rollback()
+
+        ### Test Null values ###
+
+        null_p = Playlist(
+            mood = "Upbeat and Groovy",
+            user_id = self.uid
+        )
+        null_p.id = 2
+
+        null_s = Song(
+            playlist_id = 2
+        )
+        db.session.add_all([null_p, null_s])
+        
+        # Check that an IntegrityError is raised when committing
+        with pytest.raises(IntegrityError):
+            db.session.commit()
+
+        # Rollback the session to clean up the failed commit
+        db.session.rollback()

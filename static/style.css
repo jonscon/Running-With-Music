@@ -123,32 +123,25 @@ h4 {
     gap: 5px;
 }
 
-#music-form input.form-control {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 12px 12px 20px;
+.artist-group .suggestions {
     width: 55vw;
-}
-
-.search-container .suggestions {
-    width: 55vw;
-    margin: -18px 12px 12px;
+    margin: -10px 12px 12px;
     max-block-size: 10rem;
     overflow-y: scroll;
     background-color: rgb(54, 69, 79, 0.3);
     border-radius: 5px;
 }
  
-.search-container .suggestions ul {
+.artist-group .suggestions ul {
    list-style-type: none;
    padding-left: 0px;
 }
  
-.search-container .suggestions ul li {
+.artist-group .suggestions ul li {
    padding: 0.3rem;
 }
 
-.search-container .suggestions ul li:hover {
+.artist-group .suggestions ul li:hover {
     background-color: rgb(105, 105, 105);
     cursor: pointer;
 }
@@ -160,7 +153,7 @@ h4 {
     margin: 12px;
     padding: 5px;
     border-radius: 10px;
-    width: 50vw;
+    width: 55vw;
 }
 
 .x-button {
